@@ -1,0 +1,53 @@
+class Solution {
+public:
+     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+         if(root==NULL || p==root || q==root){
+             return root;
+         }
+         TreeNode* leftNode = lowestCommonAncestor(root->left,p,q);
+         TreeNode* rightNode = lowestCommonAncestor(root->right,p,q);
+
+         if(leftNode==NULL){
+             return rightNode;
+         }
+         else if(rightNode==NULL){
+             return leftNode;
+         }
+         else{
+             return root;
+         }
+     }
+
+    // bool getPath(TreeNode* root,vector<int> &path,int k){
+    //     if(root==NULL){
+    //         return false;
+    //     }
+    //     path.push_back(root->val);
+    //     if(root->val == k){
+    //         return true;
+    //     }
+    //     if(getPath(root->left,path,k) &&
+    //     getPath(root->right,path,k)){
+    //         return true;
+    //     }
+    //     path.pop_back();
+    //     return false;
+    // }
+    // TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    //     vector<int>path1,path2;
+    //     if(!getPath(root,path1,p->val) ||
+    //     !getPath(root,path2,q->val)){
+    //         return NULL;
+    //     }
+    //     TreeNode* lca = NULL;
+    //     for(int i=0;i<min(path1.size(),path2.size());i++){
+    //         if(path1[i]==path2[i]){
+    //             lca = new TreeNode(path1[i]);
+    //         }
+    //         else{
+    //             break;
+    //         }
+    //     }
+    //     return lca;
+    // }
+};
