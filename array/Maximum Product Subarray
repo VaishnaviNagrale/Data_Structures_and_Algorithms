@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int n = nums.size();
+				int maxProduct=INT_MIN;
+				//Optimal - TC:O(n),SC:O(1)
+				int prefixMul=1,suffixMul=1;
+				for(int i=0;i<n;i++){
+					if(prefixMul==0){
+						prefixMul=1;
+					}
+					if(suffixMul==0){
+						suffixMul=1;
+					}
+					prefixMul *= nums[i];
+					suffixMul *= nums[n-i-1];
+					maxProduct = max(maxProduct,max(prefixMul,suffixMul));
+				}
+
+       //Brute Force - TC:O(n^2),SC:O(1)
+	    // for(int i=0;i<n;i++){
+	    //     int product=nums[i];
+	    //     for(int j=i+1;j<n;j++){
+	    //         maxProduct = max(maxProduct,product);
+	    //         product = product * nums[j];
+	    //     }
+	    //     maxProduct = max(maxProduct,product);
+	    // }
+	    return maxProduct; 
+    }
+};
