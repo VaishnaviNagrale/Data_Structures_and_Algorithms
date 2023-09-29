@@ -1,0 +1,30 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char>st;
+        for(int i=0;i<s.size();i++){
+            char ch=s[i];
+            if(ch=='(' || ch=='[' || ch=='{'){
+                st.push(ch);
+            }
+            else{
+                if(!st.empty()){
+                    int topChar = st.top();
+                    if((topChar=='(' && ch==')')||(topChar=='[' && ch==']')||(topChar=='{' && ch=='}')){
+                        st.pop();
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+                else{
+                    return 0;
+                }
+            }
+        }
+        if(st.empty()){
+            return 1;
+        }
+        return 0;
+    }
+};
