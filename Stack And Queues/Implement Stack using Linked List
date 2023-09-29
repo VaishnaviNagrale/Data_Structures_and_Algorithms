@@ -1,0 +1,18 @@
+//Function to push an integer into the stack.
+void MyStack ::push(int x) 
+{
+    StackNode* n=new StackNode(x);
+    n->next=top;
+    top=n;
+}
+
+//Function to remove an item from top of the stack.
+int MyStack ::pop() 
+{
+    if(top==NULL){
+        return -1;
+    }
+    StackNode* num=top;
+    top=top->next;
+    return num->data;
+}
