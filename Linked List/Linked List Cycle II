@@ -1,0 +1,38 @@
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        // By Map
+        // map<ListNode*,bool>vs;
+        // ListNode* temp=head;
+        // while(temp!=NULL){
+        //     if(vs[temp]==1){
+        //         return temp;
+        //     }
+        //     vs[temp]=1;
+        //     temp=temp->next;
+        // }
+        // return NULL;
+        
+        //By Flyod's Algorithm
+        ListNode* slow=head;
+        ListNode* fast=head;
+        bool flag=0;
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast){
+                flag=1;
+                break;
+            }
+        }
+        if(flag){
+            slow=head;
+            while(slow!=fast){
+                slow=slow->next;
+                fast=fast->next;
+            }
+            return slow;
+        }
+        return NULL;
+    }
+};
