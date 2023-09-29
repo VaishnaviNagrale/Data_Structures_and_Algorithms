@@ -1,0 +1,91 @@
+/*
+ 
+  Node is defined as
+  struct Node {
+    int data;
+    struct Node *next;
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+*/
+class Solution
+{
+    public:
+    //Function to sort a linked list of 0s, 1s and 2s.
+    Node* segregate(Node *head) {
+        //Without replacing original linked list
+        Node* zero=new Node(-1);
+        Node* one=new Node(-1);
+        Node* two=new Node(-1);
+    
+        Node* tempZero=zero;
+        Node* tempOne=one;
+        Node* tempTwo=two;
+        
+        Node* temp=head;
+        while(temp!=NULL){
+            if(temp->data==0){
+                tempZero->next=temp;
+                tempZero=tempZero->next;
+            }
+            else if(temp->data==1){
+                tempOne->next=temp;
+                tempOne=tempOne->next;
+            }
+            else if(temp->data==2){
+                tempTwo->next=temp;
+                tempTwo=tempTwo->next;
+            }
+            temp=temp->next;
+        }
+        if(one->next!=NULL){
+            tempZero->next=one->next;
+        }
+        else{
+            tempZero->next=two->next;
+        }
+        tempOne->next=two->next;
+        tempTwo->next=NULL;
+        head=zero->next;
+        delete zero;
+        delete one;
+        delete two;
+        return head;
+        
+        //With replacement in original linked list
+        // int cntZero=0,cntOne=0,cntTwo=0;
+        // Node* temp=head;
+        // while(temp!=NULL){
+        //     if(temp->data==0){
+        //         cntZero++;
+        //     }
+        //     else if(temp->data==1){
+        //         cntOne++;
+        //     }
+        //     else{
+        //         cntTwo++;
+        //     }
+        //     temp=temp->next;
+        // }
+        // temp=head;
+        // while(temp!=NULL){
+        //     if(cntZero!=0){
+        //         temp->data=0;
+        //         cntZero--;
+        //     }
+        //     else if(cntOne!=0){
+        //         temp->data=1;
+        //         cntOne--;
+        //     }
+        //     else{
+        //         temp->data=2;
+        //         cntTwo--;
+        //     }
+        //     temp=temp->next;
+        // }
+        // return head;
+    }
+};
