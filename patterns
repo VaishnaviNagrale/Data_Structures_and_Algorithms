@@ -1,0 +1,148 @@
+int main()
+{
+    //Rectangle Pattern 16/04/22 
+    int n;
+    cin>>n;
+    for (int i=1; i <=n; i++)
+    {
+        for(int j=1;j<=n;j++){
+            cout<<"* ";
+        }
+        cout<<endl;
+    }
+
+   // Hollo Rectangle pattern 16/04/22
+   int i,row,col;
+   cin>>row>>col;
+   for(int i=1;i<=row;++i){
+       for(int j=1;j<=col;++j){
+           if(i==row||i==1||j==1||j==col)
+           cout<<"* ";
+           else
+           cout<<"  ";
+       }
+       cout<<endl;
+   }
+   
+   // Inverted half pyramid pattern 16/04/22
+   int n; cin>>n;
+   for (int i = n; i >=1; i--)
+   {
+       for(int j=1;j<=i;j++){
+           cout<<"* ";
+       }
+       cout<<endl;
+   }
+   
+   // Half Pyramid pattern on right side 16/04/22
+   int n; cin>>n;
+   for (int i = 1; i<=n; i++)
+   {
+       for(int j=1;j<=n;j++){
+           if(j<=n-i){
+               cout<<"  ";
+           }
+           else
+           cout<<"* ";
+       }
+       cout<<endl;
+   }
+  
+   // Half Pyramid of no.s on left side 16/04/22
+   int n; cin>>n;
+   for(int i=1;i<=n;i++){
+     for(int j=1;j<=i;j++){
+         cout<<i<<" ";
+     }
+     cout<<endl;
+   }
+   
+   // Floyd's Tringle 16/04/22
+   int n,i,j,k=1; cin>>n;
+   for(i=1;i<=n;i++){
+       for(j=1;j<=i;j++){
+           cout<<k<<" ";
+           k++;
+       }
+       cout<<endl;
+   }
+ 
+   // Butterfly Pattern 16/04/22
+   int i,j,n; cin>>n;
+    for(i=1;i<=n;i++){
+       for(j=1;j<=2*n;j++){
+         if(j<=n){
+             if(j<=i)
+             cout<<"* ";
+             else
+             cout<<"  ";
+     }
+         if(j>4){
+            if(j<=2*n-i)
+            cout<<"  ";
+            else
+            cout<<"* ";
+       }
+       }
+       cout<<endl;
+  }
+ for(i=n;i>=1;i--){
+    for(j=1;j<=2*n;j++){
+         if(j<=n){
+             if(j<=i)
+             cout<<"* ";
+             else
+             cout<<"  ";
+     }
+         if(j>4){
+            if(j<=2*n-i)
+            cout<<"  ";
+            else
+            cout<<"* ";
+       }
+       }
+       cout<<endl;
+  }
+  
+  // Inverted Pattern 16/04/22
+  int i,j,n; cin>>n;
+  for(i=1;i<=n;i++){
+      for(j=1;j<=n-i+1;j++){
+          cout<<j<<" ";
+      }
+      cout<<endl;
+  }
+ 
+  // 0-1 Pattren 16/04/22
+  int i,j,n; cin>>n;
+  for(i=1;i<=n;i++){
+      for(j=1;j<=i;j++){
+          if((i+j)%2==0)
+          cout<<"1 ";
+          else
+          cout<<"0 ";
+      }
+      cout<<endl;
+  }
+ 
+  // Rhombus Pattern 16/04/22
+  int n,i,j; cin>>n;
+  for(i=1;i<=n;i++){
+      for(j=1;j<=n-i;j++)
+      cout<<"  ";
+      for(j=1;j<=n;j++)
+      cout<<"* ";
+      cout<<endl;
+  }
+  
+// Number Pattern 16/04/22
+int i,j,n; cin>>n;
+for(i=1;i<=n;i++){
+    for(j=1;j<=n-i;j++)
+    cout<<"  ";
+    for(j=1;j<=i;j++)
+    cout<<j<<" ";
+    cout<<endl;
+}  
+    return 0;
+}
