@@ -1,0 +1,56 @@
+class Solution {
+public:
+    int lengthList(ListNode* head){
+        if(head==NULL){
+           return 0;
+        }
+        else if(head->next==NULL){
+            return 1;
+        }
+        else{
+            ListNode* temp=head;
+            int count=1;
+            while(temp->next!=NULL){
+              temp=temp->next;
+                count++;
+            }
+            return count;
+        }
+    }
+    ListNode* deleteMiddle(ListNode* head) {
+        if(head==NULL || head->next==NULL){
+            return NULL;
+        }
+        ListNode* temp=head;
+        int cnt=1;
+        while(temp->next!=NULL){
+            temp=temp->next;
+            cnt++;
+        }
+        int len=cnt;
+        temp=head;
+        cnt=1;
+        while(cnt<len/2){
+            temp=temp->next;
+            cnt++;
+        }
+        ListNode* t=temp->next;
+        temp->next=temp->next->next;
+        delete t;
+        return head;
+
+        // if(head==NULL || head->next==NULL){
+        //     return NULL;
+        // }
+        // int l=lengthList(head);
+        // int n=(l/2)-1;
+        // ListNode* temp=head;
+        // while(n--){
+        //     temp=temp->next;
+        // }
+        // ListNode* t=temp->next;
+        // temp->next=temp->next->next;
+        // delete t;
+        // return head;
+    }
+};
