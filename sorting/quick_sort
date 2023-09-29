@@ -1,0 +1,58 @@
+// Function to sort an array using quick sort algorithm.
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        int partitionIndex = partitionIn(arr, low, high);
+        quickSort(arr, low, partitionIndex - 1);
+        quickSort(arr, partitionIndex + 1, high);
+    }
+}
+// Ascending(Increasing) Manner
+int partitionIn(int arr[], int low, int high)
+{
+    int pivot = arr[low];
+    int i = low;
+    int j = high;
+    while (i < j)
+    {
+        while (arr[i] <= pivot && i <= high)
+        {
+            i++;
+        }
+        while (arr[j] > pivot && j >= low + 1)
+        {
+            j--;
+        }
+        if (i < j)
+        {
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+// Desending(Decreasing) Manner
+int partitionDec(int arr[], int low, int high)
+{
+    int pivot = arr[high];
+    int i = low;
+    int j = high;
+    while (i < j)
+    {
+        while (arr[i] > pivot && i <= high)
+        {
+            i++;
+        }
+        while (arr[j] <= pivot && j >= low + 1)
+        {
+            j--;
+        }
+        if (i < j)
+        {
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[high], arr[i]);
+    return i;
+}
