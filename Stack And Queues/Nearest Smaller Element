@@ -1,0 +1,21 @@
+vector<int> Solution::prevSmaller(vector<int> &nums) {
+    int N=nums.size();
+    stack<int> st;
+    st.push(nums[0]);
+    vector<int> ans;
+    ans.push_back(-1);
+    for(int i=1;i<N;i++){
+        while(!st.empty() && nums[i]<=st.top()){
+            st.pop();
+        }
+        if(st.empty()){
+            ans.push_back(-1);
+        }
+        else{
+            ans.push_back(st.top());
+        }
+        st.push(nums[i]);
+    }
+    //reverse(ans.begin(),ans.end());
+    return ans;
+}
