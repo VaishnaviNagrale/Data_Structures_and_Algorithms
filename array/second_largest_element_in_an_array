@@ -1,0 +1,35 @@
+int print2largest(int arr[], int n)
+{
+    // Brute force O(nlogn) but have issue of duplicate largest element
+    //  sort(arr,arr+n,greater<int>());
+    //  return arr[1];
+
+    // Better approch - O(n) - 0.16 sec
+    // int largest = arr[0];
+    //     for (int i = 0; i < n; i++){
+    //         if (arr[i] > largest){
+    //             largest = arr[i];
+    //         }
+    //     }
+    //     int secLarge = -1;
+    //     for (int i = 0; i < n; i++){
+    //         if (arr[i] != largest && arr[i]>secLarge){
+    //             secLarge = arr[i];
+    //         }
+    //     }
+    //     return secLarge;
+
+    // Optimal approch - O(n) - 0.17 sec
+    int largest = arr[0];
+    int secLarge = -1;
+    for (int i = 0; i < n; i++){
+        if (arr[i] > largest){
+            secLarge = largest;
+            largest = arr[i];
+        }
+        else if(arr[i]<largest && arr[i]>secLarge){
+            secLarge = arr[i];
+        }
+    }
+    return secLarge;
+}
