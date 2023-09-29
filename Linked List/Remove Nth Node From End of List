@@ -1,0 +1,41 @@
+class Solution {
+public:
+    int Listlength(ListNode* head){
+        int i=1;
+        ListNode* temp=head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+            i++;
+        }
+        return i;
+    }
+    void deleteAtHead(ListNode* &head){
+    ListNode* ptr=head;
+    head=head->next;
+    delete ptr;
+    }
+    void deleteAtMiddle(ListNode* &head,int pos){
+    if(head->next==NULL && pos==1){
+        head=NULL;
+        return;
+    }
+    if(pos==1){
+        deleteAtHead(head);
+        return;
+    }
+    ListNode* temp=head;
+    int count=1;
+    while (count<pos-1){
+        temp=temp->next;
+        count++;
+    }
+    ListNode* ptr=temp->next;
+    temp->next=temp->next->next;
+    delete ptr;
+    } 
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        int len=Listlength(head);
+        deleteAtMiddle(head,len-n+1);
+        return head;
+    }
+};
