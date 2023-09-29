@@ -1,0 +1,27 @@
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        int count=Listlength(head);
+        int cnt=0;
+        while(cnt!=count/2){
+            head=head->next;
+            cnt++;
+        }
+        return head;
+    }
+    int Listlength(ListNode* head){
+     if(head==NULL){
+     return 0;
+     }
+     else if(head->next==NULL){
+     return 1;
+     }
+     ListNode* temp=head;
+     int count=1;
+     while(temp->next!=NULL){
+        temp=temp->next;
+        count++;
+     }
+     return count;
+    }
+};
