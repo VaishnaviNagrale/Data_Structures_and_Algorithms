@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int N = nums.size();
+        // Brute force - for loops - TC:O(n^2),SC:O(1)
+        // int cnt = 0;
+        // for(int i=0;i<N;i++){
+        //     long long sum = 0;
+        //     for(int j=i;j<N;j++){
+        //         sum = sum + nums[j];
+        //         if(sum == k){
+        //             cnt++;
+        //         }
+        //     }
+        // }
+        // return cnt;
+
+        //Better Approch (Hashing) - for array with +ve,-ve & zeroes - TC:O(nlongn),SC:O(n)
+        map<long long,int>prefixSum;
+        long long sum=0;
+        int cnt=0;
+        for(int i=0;i<N;i++){
+            sum = sum + nums[i];
+            if(sum==k){
+                cnt++;
+            }
+            long long rem = sum - k;
+            if(prefixSum.find(rem) != prefixSum.end()){
+                cnt  += prefixSum[rem];
+            }
+            prefixSum[sum]++;
+        }
+        return cnt;
+    }
+};
