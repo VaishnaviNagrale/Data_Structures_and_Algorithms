@@ -1,0 +1,63 @@
+class Solution {
+public:
+    // int search(vector<int>& nums, int target) {
+    //     // for(int i=0;i<nums.size();i++){
+    //     //     if(nums[i]==target){
+    //     //         return i;
+    //     //     }
+    //     // }
+    //     int start=0,end=nums.size()-1;
+    //     while(start<=end){
+    //         int mid=(start+end)/2;
+    //         if(nums[mid]==target){
+    //             return mid;
+    //         }
+    //         else if(nums[mid]<target){
+    //             start=mid+1;
+    //         }
+    //         else{
+    //             end=mid-1;
+    //         }
+    //     }
+    //     return -1;
+    // }
+    int BinarySearchIterative(vector<int>& arr,int low,int high,int target){
+        if(low>high){
+            return -1;
+        }
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(arr[mid]==target){
+                return mid;
+            }
+            else if(arr[mid]<target){
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return -1;
+    }
+    int BinarySearchRecursive(vector<int>& arr,int low,int high,int target){
+        if(low>high){
+            return -1;
+        }
+        int mid = low + (high-low)/2;
+        if(arr[mid]==target){
+                return mid;
+        }
+        else if(arr[mid]<target){
+            return BinarySearchRecursive(arr,mid+1,high,target);
+        }
+        else{
+            return BinarySearchRecursive(arr,low,mid-1,target);
+        }
+        return BinarySearchRecursive(arr,low,high-1,target);
+    }
+    int search(vector<int>& nums, int target) {
+        int n = nums.size();
+        //return BinarySearchIterative(nums,0,n-1,target);
+        return BinarySearchRecursive(nums,0,n-1,target);
+    }
+};
