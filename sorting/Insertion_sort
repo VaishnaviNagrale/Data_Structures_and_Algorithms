@@ -1,0 +1,32 @@
+void insertionSort(int arr[], int n)
+{
+    //Iterative way//////////////////////////////////////////////////////////////
+    int i, j;
+    for (i = 0; i < n; i++)
+    {
+        j = i;
+        while (j > 0 && arr[j] < arr[j - 1])
+        {
+            int temp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = temp;
+            j--;
+        }
+    }//////////////////////////////////////////////////////
+    //Recursive way 
+    insertionSortRecursive(arr,0,n);
+}
+void insertionSortRecursive(int arr[], int i,int n)
+    {
+        if(i==n){
+            return;
+        }
+        int j=i;
+        while(j>0 && arr[j-1]>arr[j]){
+            int temp=arr[j];
+            arr[j]=arr[j-1];
+            arr[j-1]=temp;
+            j--;
+        }
+        insertionSortRecursive(arr,i+1,n);
+    }
