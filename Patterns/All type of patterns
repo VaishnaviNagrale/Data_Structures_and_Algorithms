@@ -1,6 +1,6 @@
 int main()
 {
-    //Rectangle Pattern 16/04/22 
+    //Rectangle Pattern  
     int n;
     cin>>n;
     for (int i=1; i <=n; i++)
@@ -11,7 +11,7 @@ int main()
         cout<<endl;
     }
 
-   // Hollo Rectangle pattern 16/04/22
+   // Hollo Rectangle pattern
    int i,row,col;
    cin>>row>>col;
    for(int i=1;i<=row;++i){
@@ -24,7 +24,7 @@ int main()
        cout<<endl;
    }
    
-   // Inverted half pyramid pattern 16/04/22
+   // Inverted half pyramid pattern 
    int n; cin>>n;
    for (int i = n; i >=1; i--)
    {
@@ -34,7 +34,7 @@ int main()
        cout<<endl;
    }
    
-   // Half Pyramid pattern on right side 16/04/22
+   // Half Pyramid pattern on right side 
    int n; cin>>n;
    for (int i = 1; i<=n; i++)
    {
@@ -48,7 +48,7 @@ int main()
        cout<<endl;
    }
   
-   // Half Pyramid of no.s on left side 16/04/22
+   // Half Pyramid of no.s on left side 
    int n; cin>>n;
    for(int i=1;i<=n;i++){
      for(int j=1;j<=i;j++){
@@ -57,7 +57,7 @@ int main()
      cout<<endl;
    }
    
-   // Floyd's Tringle 16/04/22
+   // Floyd's Tringle 
    int n,i,j,k=1; cin>>n;
    for(i=1;i<=n;i++){
        for(j=1;j<=i;j++){
@@ -67,7 +67,7 @@ int main()
        cout<<endl;
    }
  
-   // Butterfly Pattern 16/04/22
+   // Butterfly Pattern 
    int i,j,n; cin>>n;
     for(i=1;i<=n;i++){
        for(j=1;j<=2*n;j++){
@@ -104,7 +104,7 @@ int main()
        cout<<endl;
   }
   
-  // Inverted Pattern 16/04/22
+  // Inverted Pattern 
   int i,j,n; cin>>n;
   for(i=1;i<=n;i++){
       for(j=1;j<=n-i+1;j++){
@@ -113,7 +113,7 @@ int main()
       cout<<endl;
   }
  
-  // 0-1 Pattren 16/04/22
+  // 0-1 Pattren 
   int i,j,n; cin>>n;
   for(i=1;i<=n;i++){
       for(j=1;j<=i;j++){
@@ -125,7 +125,7 @@ int main()
       cout<<endl;
   }
  
-  // Rhombus Pattern 16/04/22
+  // Rhombus Pattern 
   int n,i,j; cin>>n;
   for(i=1;i<=n;i++){
       for(j=1;j<=n-i;j++)
@@ -135,7 +135,7 @@ int main()
       cout<<endl;
   }
   
-// Number Pattern 16/04/22
+// Number Pattern 
 int i,j,n; cin>>n;
 for(i=1;i<=n;i++){
     for(j=1;j<=n-i;j++)
