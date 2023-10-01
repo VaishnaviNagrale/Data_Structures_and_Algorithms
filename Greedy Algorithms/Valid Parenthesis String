@@ -1,0 +1,40 @@
+class Solution {
+public:
+    bool checkValidString(string s) {
+        int n = s.size();
+        int cntleft=0,cntright=0,cntstar=0;
+        for(int i=0;i<n;i++){
+            if(s[i]=='('){
+                cntleft++;
+            }
+            else if(s[i]=='*'){
+                if(cntleft>0){
+                    cntright++;
+                    cntleft--;
+                }
+                else{
+                    cntstar++;
+                }
+            }
+            else{
+                if(cntleft>0){
+                    cntleft--;
+                }
+                else if(cntstar>0){
+                    cntstar--;
+                }
+                else if(cntright>0){
+                    cntright--;
+                    cntstar++;
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        if(cntleft==0){
+            return true;
+        }
+        return false;
+    }
+};
